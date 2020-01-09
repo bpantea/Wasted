@@ -19,4 +19,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, LoginFacebookActivity::class.java)
         startActivity(intent)
     }
+
 }
+
+
+//radu's comment
