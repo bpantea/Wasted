@@ -1,0 +1,53 @@
+package com.wasted.application.ui
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.wasted.application.R
+
+class ActivityProfile : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_profile_layout)
+        Log.d("Activity TWO", "onCreate: started...")
+
+
+        val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavView)
+
+        val menu : Menu = bottomNavigationView.menu
+        val menuItem : MenuItem = menu.getItem(1)
+        menuItem.setChecked(true)
+
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.ic_stats -> {
+                    val intentOne = Intent(this, ActivityStats::class.java)
+                    println("GOING TO 1")
+                    ///////////// trebuie salvat Bundle inainte de callul la un nou Activity
+                    startActivity(intentOne)
+                    //mSelectedItem=0
+                    true
+                }
+                R.id.ic_profile-> {
+                    true
+                }
+                else -> {
+                    val intentThree = Intent(this, ActivityCreateDrink::class.java)
+                    startActivity(intentThree)
+                    //mSelectedItem=2
+                    true
+                }
+
+            }
+            //            return true
+        }
+    }
+
+}
