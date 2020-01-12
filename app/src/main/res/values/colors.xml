@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FBEABA</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="bottomNavColor">#FF7F50</color>
+    <color name="colorBorder">#943C3C</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#707070</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorNew">#FA7A55</color>
+    <color name="colorNew2">#F00000</color>
+
 </resources>
