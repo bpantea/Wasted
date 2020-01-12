@@ -8,8 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        //implementation 'com.mikhaellopez:circularimageview:4.1.1'
-        //implementation 'de.hdodenhof:circleimageview:3.0.1'
+
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong

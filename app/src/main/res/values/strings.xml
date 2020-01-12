@@ -12,9 +12,7 @@
     <string name="birthdayString">Birthday</string>
     <string name="updateString">Update</string>
 <string name="weightStrnig">Weight</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-<string-array name="genSpinnerNames">
+    <string-array name="genSpinnerNames">
     <item>Male</item>
     <item>Female</item>
     <item>Other</item>
