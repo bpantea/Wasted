@@ -14,7 +14,7 @@ class ActivityProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_layout)
-        Log.d("Activity TWO", "onCreate: started...")
+        Log.d("Activity Profile", "onCreate: started...")
 
 
         val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavView)

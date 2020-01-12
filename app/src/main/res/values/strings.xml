@@ -12,7 +12,6 @@
 
 
 
-    //added by me
     <string name="secondActivityHello">Welcome to SecondActivity</string>
     <string name="activityStatsWelcome">Welcome to ACTIVITY STATS</string>
     <string name="activityProfileWelcome">Welcome to ACTIVITY PROFILE</string>

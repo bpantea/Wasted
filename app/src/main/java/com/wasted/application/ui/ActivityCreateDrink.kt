@@ -15,7 +15,7 @@ class ActivityCreateDrink : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_drink_layout)
-        Log.d("Activity THREE", "onCreate: started...")
+        Log.d("Activity CreateDrink", "onCreate: started...")
 
         val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavView)
 

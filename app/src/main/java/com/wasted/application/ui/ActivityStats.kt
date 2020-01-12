@@ -15,7 +15,7 @@ class ActivityStats : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats_layout)
-        Log.d("Activity ONE", "onCreate: started...")
+        Log.d("Activity Stats", "onCreate: started...")
 
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)

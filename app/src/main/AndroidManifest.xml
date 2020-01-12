@@ -14,8 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<!--        my activities-->
-        <activity android:name=".ui.SecondActivity"/>
         <activity android:name=".ui.ActivityStats"/>
         <activity android:name=".ui.ActivityProfile"/>
         <activity android:name=".ui.ActivityCreateDrink"/>
