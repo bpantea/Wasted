@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 
 import com.wasted.application.R
+import com.wasted.application.ui.auth.LoginActivity
 import com.wasted.application.ui.auth.LoginFacebookActivity
 
 class MainActivity : AppCompatActivity() {
