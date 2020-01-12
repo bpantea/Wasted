@@ -6,8 +6,17 @@
     <string name="server_client_id">376972536110-e3ckka9ep06vhv33jq3o7vrnup177f4a.apps.googleusercontent.com</string>
     <string name="api_server_staging">https://wasted-server.herokuapp.com/</string>
     <string name="api_server_local">http://192.168.1.50:8081/</string>
-
+    <string name="genderString">Gender</string>
     <string name="facebook_app_id">2386373428340095</string>
     <string name="fb_login_protocol_scheme">fb2386373428340095</string>
-
+    <string name="birthdayString">Birthday</string>
+    <string name="updateString">Update</string>
+<string name="weightStrnig">Weight</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+<string-array name="genSpinnerNames">
+    <item>Male</item>
+    <item>Female</item>
+    <item>Other</item>
+</string-array>
 </resources>
