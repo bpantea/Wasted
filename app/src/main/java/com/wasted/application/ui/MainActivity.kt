@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.wasted.application.R
-import com.wasted.application.ui.auth.LoginActivity
 import com.wasted.application.ui.auth.LoginFacebookActivity
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openLogin(view: View) {
-        val intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, LoginFacebookActivity::class.java)
         startActivity(intent)
     }
 }

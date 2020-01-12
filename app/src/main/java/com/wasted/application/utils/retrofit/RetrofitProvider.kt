@@ -27,7 +27,7 @@ object RetrofitProvider {
                     .create()
 
                 retrofit = Retrofit.Builder()
-                    .baseUrl(context.resources.getString(R.string.api_server_local))
+                    .baseUrl(context.resources.getString(R.string.api_server_staging))
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
