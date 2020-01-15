@@ -1,33 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:textSize="25sp"
-        android:text="@string/activityStatsWelcome">
-    </TextView>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_application"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/statistics_Layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/layout_border"
+            android:backgroundTint="#DBBA71"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/labelKcalStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@android:color/transparent"
+                android:fontFamily="casual"
+                android:text="kcal:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/labelAbsorptionTime"
+                app:layout_constraintStart_toStartOf="@+id/labelAbsorptionTime"
+                app:layout_constraintTop_toBottomOf="@+id/labelAbsorptionTime" />
+
+            <TextView
+                android:id="@+id/kcalStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@android:color/white"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/absorptionTime"
+                app:layout_constraintStart_toStartOf="@+id/absorptionTime"
+                app:layout_constraintTop_toBottomOf="@+id/absorptionTime" />
+
+            <TextView
+                android:id="@+id/labelAbsorptionTime"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@android:color/transparent"
+                android:fontFamily="casual"
+                android:text="Absorption time:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/labelBloodAlcohol"
+                app:layout_constraintTop_toBottomOf="@+id/labelBloodAlcohol" />
+
+            <TextView
+                android:id="@+id/absorptionTime"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@android:color/white"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/bloodAlcohol"
+                app:layout_constraintStart_toStartOf="@+id/bloodAlcohol"
+                app:layout_constraintTop_toBottomOf="@+id/bloodAlcohol" />
+
+            <TextView
+                android:id="@+id/labelBloodAlcohol"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@android:color/transparent"
+                android:fontFamily="casual"
+                android:text="Blood Alcohol (%):"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/bloodAlcohol"
+                app:layout_constraintHorizontal_bias="0.533"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/bloodAlcohol"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@android:color/white"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/middleRelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="-11dp"
+                tools:layout_editor_absoluteY="-140dp">
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/orderPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="52dp"
+            android:gravity="end|bottom"
+            android:tint="@android:color/white"
+            app:backgroundTint="#045248"
+            app:fabSize="normal"
+            app:layout_anchor="@id/bottomNavView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/add64" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:id="@+id/mainRelLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <RelativeLayout
-            android:id="@+id/middleRelLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/bottomRelLayout">
-        </RelativeLayout>
 
 
         <RelativeLayout
@@ -43,6 +169,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/border_bottom"
                 app:menu="@menu/bottom_navigation_menu"
+
+
 
                 app:itemIconTint="@color/colorWhite"
                 app:itemTextAppearanceInactive="@style/myStylePrimary"

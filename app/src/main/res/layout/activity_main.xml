@@ -14,17 +14,17 @@
         android:id="@+id/button"
         android:layout_width="259dp"
         android:layout_height="71dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/custom_button"
         android:onClick="openLogin"
-        android:text="BUTTON FACEBOOK"
-        android:layout_marginBottom="70dp"
         android:text=""
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
+        app:layout_constraintVertical_bias="0.861" />
 
     <Button
         android:id="@+id/buttonSecondActivity"
