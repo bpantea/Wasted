@@ -209,6 +209,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:background="#00FFFFFF"
+                    android:onClick="logOut"
                     app:layout_constraintBottom_toBottomOf="@+id/userImage"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/userImage"
