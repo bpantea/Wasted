@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wasted.application.R
+import com.wasted.application.backend.AuthService
+import com.wasted.application.utils.WastedApplication
 
 class ActivityProfile : AppCompatActivity() {
 
@@ -50,4 +53,10 @@ class ActivityProfile : AppCompatActivity() {
         }
     }
 
+    fun logOut(view: View) {
+        (application as WastedApplication).mGoogleSignInClient.signOut()
+            .addOnCompleteListener(this) {
+                AuthService.updateCurrentUser(null)
+            }
+    }
 }
