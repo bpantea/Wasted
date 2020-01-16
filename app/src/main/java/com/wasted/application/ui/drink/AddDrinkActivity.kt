@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import com.wasted.application.R
 import com.wasted.application.utils.scanner.IntentScanner
@@ -13,18 +14,44 @@ import com.wasted.application.utils.scanner.IntentScanner
 class AddDrinkActivity : AppCompatActivity() {
     val CODE = 1
     lateinit var intentScan: Intent
+    lateinit var addDrink: Button
     companion object {
-
         var scanResult: EditText? = null
+        var code :String =""
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_drink)
-        scanResult = findViewById(R.id.scanResult) as EditText
+        setContentView(R.layout.activity_add_edit_drink)
+        code = intent.getStringExtra("BarCode") as String
+        addDrink = findViewById(R.id.add_edit_drink)
+        addDrink.setOnClickListener {
+            if(code == "")
+            {
+                //casuta de dialog
 
+
+            } else {
+                if(isValid())
+                {
+                    //casuta de dialog => SIGUR VREI SA ADAUGI BAUTUR
+                    addDrink()
+                }
+            }
+        }
 
     }
+
+    private fun addDrink() {
+        //TO DB
+        //TO CONSUMTION LIST
+    }
+
+    private fun isValid(): Boolean {
+        return true
+    }
+
     fun startScanButton(view: View) {
         IntentScanner.invoke(this)
         intentScan = IntentScanner.instance

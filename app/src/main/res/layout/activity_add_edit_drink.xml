@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_application"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.drink.AddDrinkActivity">
 
     <Button
         android:id="@+id/add_edit_drink"
@@ -14,6 +15,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_buttonadd"
         android:fontFamily="casual"
+        android:onClick=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
