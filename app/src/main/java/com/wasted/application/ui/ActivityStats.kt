@@ -25,7 +25,6 @@ class ActivityStats : AppCompatActivity(){
             startActivity(intent)
         }
 
-
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)
 
         val menu: Menu = bottomNavigationView.menu
