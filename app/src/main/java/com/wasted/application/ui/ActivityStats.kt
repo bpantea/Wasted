@@ -33,8 +33,6 @@ class ActivityStats : AppCompatActivity(){
         menuItem.setChecked(true)
 
 
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.ic_stats -> {
