@@ -14,22 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.userIndormation"></activity>
-
-        <activity android:name=".ui.ActivityStats"/>
+        <activity android:name=".ui.UserInformationActivity"/>
+        <activity android:name=".ui.ActivityStats">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.ActivityProfile"/>
         <activity android:name=".ui.ActivityCreateDrink"/>
 
         <activity android:name=".ui.drink.AddDrinkActivity" />
         <activity android:name=".ui.auth.LoginFacebookActivity" />
         <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

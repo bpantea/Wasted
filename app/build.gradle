@@ -7,6 +7,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'wasted'
+            keyAlias = 'wasted'
+            keyPassword 'wasted'
+        }
+    }
     useLibrary 'org.apache.http.legacy'
 
     compileSdkVersion 29
