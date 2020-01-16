@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_application"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/add_edit_drink"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_buttonadd"
+        android:fontFamily="casual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drink_Information_Layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/drink_Information_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/layout_border"
+        android:backgroundTint="#DBBA71"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/kcal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/alcoholQuantity"
+            app:layout_constraintStart_toStartOf="@+id/alcoholQuantity"
+            app:layout_constraintTop_toBottomOf="@+id/alcoholQuantity" />
+
+        <TextView
+            android:id="@+id/textViewKcal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Kcal:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textViewAlcoholQuality"
+            app:layout_constraintStart_toStartOf="@+id/textViewAlcoholQuality"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAlcoholQuality" />
+
+        <TextView
+            android:id="@+id/textViewAlcoholQuality"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Alcohol (%):"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/labelKcalStatistics"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/labelKcalStatistics"
+            app:layout_constraintTop_toBottomOf="@+id/labelKcalStatistics" />
+
+        <EditText
+            android:id="@+id/alcoholQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/kcalStatistics"
+            app:layout_constraintStart_toStartOf="@+id/kcalStatistics"
+            app:layout_constraintTop_toBottomOf="@+id/kcalStatistics" />
+
+        <TextView
+            android:id="@+id/labelKcalStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Model:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/labelAbsorptionTime"
+            app:layout_constraintStart_toStartOf="@+id/labelAbsorptionTime"
+            app:layout_constraintTop_toBottomOf="@+id/labelAbsorptionTime" />
+
+        <EditText
+            android:id="@+id/kcalStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/absorptionTime"
+            app:layout_constraintStart_toStartOf="@+id/absorptionTime"
+            app:layout_constraintTop_toBottomOf="@+id/absorptionTime" />
+
+        <TextView
+            android:id="@+id/labelAbsorptionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Brand:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/labelBloodAlcohol"
+            app:layout_constraintTop_toBottomOf="@+id/labelBloodAlcohol" />
+
+        <EditText
+            android:id="@+id/absorptionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bloodAlcohol"
+            app:layout_constraintStart_toStartOf="@+id/bloodAlcohol"
+            app:layout_constraintTop_toBottomOf="@+id/bloodAlcohol" />
+
+        <TextView
+            android:id="@+id/labelBloodAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Quantity:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bloodAlcohol"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/bloodAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

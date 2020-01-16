@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_application"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/statistics_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/layout_border"
+        android:backgroundTint="#DBBA71"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/labelKcalStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="kcal:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/labelAbsorptionTime"
+            app:layout_constraintStart_toStartOf="@+id/labelAbsorptionTime"
+            app:layout_constraintTop_toBottomOf="@+id/labelAbsorptionTime" />
+
+        <TextView
+            android:id="@+id/kcalStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/absorptionTime"
+            app:layout_constraintStart_toStartOf="@+id/absorptionTime"
+            app:layout_constraintTop_toBottomOf="@+id/absorptionTime" />
+
+        <TextView
+            android:id="@+id/labelAbsorptionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Absorption time:"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/labelBloodAlcohol"
+            app:layout_constraintTop_toBottomOf="@+id/labelBloodAlcohol" />
+
+        <TextView
+            android:id="@+id/absorptionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/bloodAlcohol"
+            app:layout_constraintStart_toStartOf="@+id/bloodAlcohol"
+            app:layout_constraintTop_toBottomOf="@+id/bloodAlcohol" />
+
+        <TextView
+            android:id="@+id/labelBloodAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="casual"
+            android:text="Blood Alcohol (%):"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bloodAlcohol"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bloodAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@android:color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
