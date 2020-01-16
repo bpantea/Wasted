@@ -30,8 +30,8 @@ class AddDrinkActivity : AppCompatActivity() {
         intentScan = IntentScanner.instance
         startActivityForResult(intentScan,CODE)
     }
-    @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 1  && resultCode == Activity.RESULT_OK && data!= null)
         {
             var num1 = data.getStringExtra("1")
