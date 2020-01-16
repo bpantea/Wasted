@@ -8,6 +8,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.wasted.application.backend.AuthService
+import com.wasted.application.backend.StringResponse
 import com.wasted.application.model.GoogleUserDto
 import com.wasted.application.model.User
 import com.wasted.application.ui.ActivityStats
