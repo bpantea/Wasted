@@ -235,6 +235,7 @@
                     android:id="@+id/displayNameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="74dp"
                     android:background="?attr/editTextBackground"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
@@ -243,7 +244,8 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@+id/emailText" />
+                    app:layout_constraintBottom_toTopOf="@+id/emailText"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
