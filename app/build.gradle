@@ -75,4 +75,5 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
     //scanner
     implementation 'me.dm7.barcodescanner:zxing:1.9'
+
 }

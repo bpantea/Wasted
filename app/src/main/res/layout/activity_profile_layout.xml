@@ -103,8 +103,8 @@
 
                     <EditText
                         android:id="@+id/weightText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="218dp"
+                        android:layout_height="41dp"
                         android:ems="10"
                         android:hint="@string/weightStrnig"
                         android:inputType="textPersonName"
@@ -195,7 +195,7 @@
                     android:id="@+id/userImage"
                     android:layout_width="225dp"
                     android:layout_height="162dp"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@drawable/com_facebook_profile_picture_blank_portrait"
                     app:civ_border_color="#00DCFF"
                     app:civ_border_width="4dp"
                     app:civ_shadow="true"
@@ -203,7 +203,8 @@
                     app:civ_shadow_radius="10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
 
                 <ImageButton
                     android:id="@+id/logOutButton"
@@ -231,7 +232,6 @@
                     android:id="@+id/emailText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="?attr/editTextBackground"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="textEmailAddress"
@@ -240,23 +240,24 @@
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/displayNameText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="74dp"
-                    android:background="?attr/editTextBackground"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Nickname"
+                    android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#FFFFFF"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/emailText"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

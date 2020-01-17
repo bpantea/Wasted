@@ -54,11 +54,13 @@ class ActivityCreateDrink : AppCompatActivity() {
                 R.id.ic_stats -> {
                     val intentOne = Intent(this, ActivityStats::class.java)
                     startActivity(intentOne)
+                    overridePendingTransition(0,0)
                     true
                 }
                 R.id.ic_profile -> {
                     val intentTwo = Intent(this, ActivityProfile::class.java)
                     startActivity(intentTwo)
+                    overridePendingTransition(0,0)
                     true
                 }
                 else -> {
