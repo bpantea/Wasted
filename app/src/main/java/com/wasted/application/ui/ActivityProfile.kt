@@ -40,36 +40,40 @@ class ActivityProfile : AppCompatActivity() {
 
     private fun updateUI(user: User?) {
         if (user != null) {
-            val genSpinner:Spinner=findViewById(R.id.genderSpinner)
-                if(user.gender!=null){
-                    if(user.gender!!.equals(Gender.MALE))
+            val genSpinner: Spinner = findViewById(R.id.genderSpinner)
+            if (user.gender != null) {
+                if (user.gender!!.equals(Gender.MALE))
                     genSpinner.setSelection(0)
 
-                    if(user.gender!!.equals(Gender.FEMALE))
+                if (user.gender!!.equals(Gender.FEMALE))
                     genSpinner.setSelection(1)
 
-                    if(user.gender!!.equals(Gender.OTHER))
+                if (user.gender!!.equals(Gender.OTHER))
                     genSpinner.setSelection(2)
-                }
+            }
 
-            val weightText:EditText =findViewById(R.id.weightText)
+            val weightText: EditText = findViewById(R.id.weightText)
             weightText.setText(if (user.weight != null) user.weight.toString() else "0")
 
             val date: DatePicker = findViewById(R.id.datePickerInfo)
-            val calendar:Calendar = Calendar.getInstance()
+            val calendar: Calendar = Calendar.getInstance()
 
             if (user.birthday != null) {
                 calendar.timeInMillis = user.birthday!!.time
             }
-            date.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+            date.updateDate(
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
         }
     }
 
     private fun bottomNavigationInitialization() {
-        val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavView)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)
 
-        val menu : Menu = bottomNavigationView.menu
-        val menuItem : MenuItem = menu.getItem(1)
+        val menu: Menu = bottomNavigationView.menu
+        val menuItem: MenuItem = menu.getItem(1)
         menuItem.isChecked = true
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -77,16 +81,16 @@ class ActivityProfile : AppCompatActivity() {
                 R.id.ic_stats -> {
                     val intentOne = Intent(this, ActivityStats::class.java)
                     startActivity(intentOne)
-                    overridePendingTransition(0,0)
+                    overridePendingTransition(0, 0)
                     true
                 }
-                R.id.ic_profile-> {
+                R.id.ic_profile -> {
                     true
                 }
                 else -> {
                     val intentThree = Intent(this, ActivityCreateDrink::class.java)
                     startActivity(intentThree)
-                    overridePendingTransition(0,0)
+                    overridePendingTransition(0, 0)
                     true
                 }
             }
@@ -109,7 +113,7 @@ class ActivityProfile : AppCompatActivity() {
 
         val user = ExtraFieldsUser(null, null, null)
 
-        user.gender = when(genderSpinner) {
+        user.gender = when (genderSpinner) {
             genSpinner.getItemAtPosition(0) -> Gender.MALE
             genSpinner.getItemAtPosition(1) -> Gender.FEMALE
             else -> Gender.OTHER
