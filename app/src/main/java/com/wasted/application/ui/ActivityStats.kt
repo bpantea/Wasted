@@ -1,29 +1,38 @@
 package com.wasted.application.ui
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wasted.application.R
-import com.wasted.application.ui.drink.AddDrinkActivity
 import com.wasted.application.utils.scanner.IntentScanner
-import com.wasted.application.utils.scanner.ScanActivity
 import kotlinx.android.synthetic.main.activity_stats_layout.*
 
 class ActivityStats : AppCompatActivity(){
 
     val CODE = 1
     lateinit var intentScan: Intent
+    val REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats_layout)
-        Log.d("Activity Stats", "onCreate: started...")
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CODE)
+        }
+            Log.d("Activity Stats", "onCreate: started...")
 
 
         orderPlus.setOnClickListener{
@@ -55,6 +64,7 @@ class ActivityStats : AppCompatActivity(){
                 else -> {
                     val intentThree = Intent(this, ActivityCreateDrink::class.java)
                     startActivity(intentThree)
+
                     //mSelectedItem=2
                     true
                 }
@@ -71,9 +81,9 @@ class ActivityStats : AppCompatActivity(){
             var code = data.getStringExtra("1")
             println(code)
             Toast.makeText(this,code,Toast.LENGTH_SHORT).show()
-            if(!findDrinkByBarCode(code))
+            if(findDrinkByBarCode(code)==false)
             {
-                var intent = Intent(this,AddDrinkActivity::class.java)
+                var intent = Intent(this,ActivityCreateDrink::class.java)
                 intent.putExtra("BarCode",code)
                 startActivity(intent)
             }
