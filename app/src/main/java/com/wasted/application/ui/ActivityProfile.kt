@@ -35,6 +35,7 @@ class ActivityProfile : AppCompatActivity() {
                     println("GOING TO 1")
                     ///////////// trebuie salvat Bundle inainte de callul la un nou Activity
                     startActivity(intentOne)
+                    overridePendingTransition(0,0)
                     //mSelectedItem=0
                     true
                 }
@@ -44,6 +45,7 @@ class ActivityProfile : AppCompatActivity() {
                 else -> {
                     val intentThree = Intent(this, ActivityCreateDrink::class.java)
                     startActivity(intentThree)
+                    overridePendingTransition(0,0)
                     //mSelectedItem=2
                     true
                 }

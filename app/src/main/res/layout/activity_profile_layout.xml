@@ -194,7 +194,7 @@
                     android:id="@+id/userImage"
                     android:layout_width="225dp"
                     android:layout_height="162dp"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@drawable/com_facebook_profile_picture_blank_portrait"
                     app:civ_border_color="#00DCFF"
                     app:civ_border_width="4dp"
                     app:civ_shadow="true"
@@ -202,7 +202,8 @@
                     app:civ_shadow_radius="10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
 
                 <ImageButton
                     android:id="@+id/logOutButton"

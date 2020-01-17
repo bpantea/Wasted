@@ -33,12 +33,14 @@ class ActivityStats : AppCompatActivity(){
                 R.id.ic_profile -> {
                     val intentTwo = Intent(this, ActivityProfile::class.java)
                     startActivity(intentTwo)
+                    overridePendingTransition(0,0)
                     //mSelectedItem=1
                     true
                 }
                 else -> {
                     val intentThree = Intent(this, ActivityCreateDrink::class.java)
                     startActivity(intentThree)
+                    overridePendingTransition(0,0)
                     //mSelectedItem=2
                     true
                 }
