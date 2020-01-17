@@ -8,8 +8,13 @@ import com.wasted.application.backend.DrinkService
 import com.wasted.application.model.Drink
 import com.wasted.application.utils.retrofit.RetrofitProvider
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class DrinkViewModel(application: Application) : AndroidViewModel(application) {
+
+    companion object {
+        var scannerBarcode: String? = null
+    }
 
     var currentDrink: MutableLiveData<Drink?> = MutableLiveData(null)
     private val drinkService: DrinkService = RetrofitProvider.createService(application, DrinkService::class.java)
@@ -19,7 +24,13 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
      */
     fun startGetDrink(id: String) {
         viewModelScope.launch {
-            currentDrink.value = drinkService.getDrink(id)
+            try {
+                val drink = drinkService.getDrink(id)
+                currentDrink.value = drink
+            } catch (e: Exception) {
+                currentDrink.value = null
+            }
+
         }
     }
 
