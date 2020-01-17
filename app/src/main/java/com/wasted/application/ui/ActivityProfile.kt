@@ -1,5 +1,6 @@
 package com.wasted.application.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -16,11 +17,14 @@ import com.wasted.application.model.ExtraFieldsUser
 import com.wasted.application.model.Gender
 import com.wasted.application.model.User
 import com.wasted.application.utils.WastedApplication
+import com.wasted.application.utils.scanner.ScanActivity
+import com.wasted.application.view_model.DrinkViewModel
 import com.wasted.application.view_model.UserViewModel
 import java.util.*
 
 
 class ActivityProfile : AppCompatActivity() {
+    private val CREATE_CODE = 2
 
     lateinit var userViewModel: UserViewModel
 
@@ -105,9 +109,9 @@ class ActivityProfile : AppCompatActivity() {
                     true
                 }
                 else -> {
-                    val intentThree = Intent(this, ActivityCreateDrink::class.java)
-                    startActivity(intentThree)
-                    overridePendingTransition(0, 0)
+                    val intentThree = Intent(this, ScanActivity::class.java)
+                    startActivityForResult(intentThree, CREATE_CODE)
+                    overridePendingTransition(0,0)
                     true
                 }
             }
@@ -135,5 +139,16 @@ class ActivityProfile : AppCompatActivity() {
         user.birthday = calendar.timeInMillis
 
         userViewModel.updateUser(user)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CREATE_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            val code = data.getStringExtra("1")
+            DrinkViewModel.scannerBarcode = code
+            Toast.makeText(this, code, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ActivityCreateDrink::class.java)
+            startActivity(intent)
+        }
     }
 }

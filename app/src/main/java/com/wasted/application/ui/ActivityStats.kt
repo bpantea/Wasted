@@ -20,6 +20,7 @@ import com.wasted.application.R
 import com.wasted.application.backend.AuthService
 import com.wasted.application.model.ConsumptionDto
 import com.wasted.application.model.Drink
+import com.wasted.application.model.Stats
 import com.wasted.application.utils.scanner.ScanActivity
 import com.wasted.application.view_model.ConsumptionViewModel
 import com.wasted.application.view_model.DrinkViewModel
@@ -60,9 +61,25 @@ class ActivityStats : AppCompatActivity() {
             startActivityForResult(intent, ADD_CODE)
         }
 
+        consumptionViewModel.stats.observe(this, Observer {
+            updateUI(it)
+        })
+
     }
 
-    fun createAndShowDialogForConfirmDrink(drink: Drink) {
+    private fun updateUI(stats: Stats?) {
+        if (stats != null) {
+            // todo update UI
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        consumptionViewModel.getStats()
+    }
+
+    private fun createAndShowDialogForConfirmDrink(drink: Drink) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Adding a drink")
         builder.setMessage("Do you really want to add this drink?")
