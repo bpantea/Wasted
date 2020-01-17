@@ -134,6 +134,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <RelativeLayout
+            android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/linearLayout"
@@ -146,8 +147,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginEnd="40dp"
 
-                android:tint="@android:color/white"
                 android:layout_marginBottom="70dp"
+                android:tint="@android:color/white"
                 app:backgroundTint="#045248"
                 app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -155,6 +156,35 @@
                 app:srcCompat="@drawable/add64" />
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="40dp"
+
+                android:layout_marginBottom="70dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="#045248"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_share_black_24dp" />
+
+        </RelativeLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
