@@ -163,6 +163,7 @@
                     android:background="@drawable/custom_buttonupdate"
                     android:fontFamily="casual"
                     android:textAllCaps="false"
+                    android:onClick="updateUser"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
