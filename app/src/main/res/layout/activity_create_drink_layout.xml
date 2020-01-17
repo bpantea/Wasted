@@ -49,14 +49,14 @@
                 android:background="@android:drawable/editbox_background"
                 android:backgroundTint="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FFFFFF"
+                android:inputType="numberDecimal"
+                android:textColor="#0E0D0D"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/add_edit_drink"
-                app:layout_constraintEnd_toEndOf="@+id/alcoholQuantity"
+                app:layout_constraintEnd_toEndOf="@+id/bloodAlcohol"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/alcoholQuantity"
-                app:layout_constraintTop_toBottomOf="@+id/alcoholQuantity"
+                app:layout_constraintStart_toStartOf="@+id/bloodAlcohol"
+                app:layout_constraintTop_toBottomOf="@+id/bloodAlcohol"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
@@ -87,28 +87,28 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/labelKcalStatistics"
+                app:layout_constraintEnd_toEndOf="@+id/labelModel"
                 app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="@+id/labelKcalStatistics"
-                app:layout_constraintTop_toBottomOf="@+id/labelKcalStatistics" />
+                app:layout_constraintStart_toStartOf="@+id/labelModel"
+                app:layout_constraintTop_toBottomOf="@+id/labelModel" />
 
             <EditText
-                android:id="@+id/alcoholQuantity"
+                android:id="@+id/bloodAlcohol"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:background="@android:drawable/editbox_background"
                 android:backgroundTint="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FFFFFF"
+                android:inputType="numberDecimal"
+                android:textColor="#0E0D0D"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/kcalStatistics"
-                app:layout_constraintStart_toStartOf="@+id/kcalStatistics"
-                app:layout_constraintTop_toBottomOf="@+id/kcalStatistics" />
+                app:layout_constraintEnd_toEndOf="@+id/model"
+                app:layout_constraintStart_toStartOf="@+id/model"
+                app:layout_constraintTop_toBottomOf="@+id/model" />
 
             <TextView
-                android:id="@+id/labelKcalStatistics"
+                android:id="@+id/labelModel"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -119,12 +119,12 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/labelAbsorptionTime"
-                app:layout_constraintStart_toStartOf="@+id/labelAbsorptionTime"
-                app:layout_constraintTop_toBottomOf="@+id/labelAbsorptionTime" />
+                app:layout_constraintEnd_toEndOf="@+id/labelBrand"
+                app:layout_constraintStart_toStartOf="@+id/labelBrand"
+                app:layout_constraintTop_toBottomOf="@+id/labelBrand" />
 
             <EditText
-                android:id="@+id/kcalStatistics"
+                android:id="@+id/model"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -132,14 +132,14 @@
                 android:backgroundTint="@android:color/white"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="#FFFFFF"
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/absorptionTime"
-                app:layout_constraintStart_toStartOf="@+id/absorptionTime"
-                app:layout_constraintTop_toBottomOf="@+id/absorptionTime" />
+                app:layout_constraintEnd_toEndOf="@+id/brand"
+                app:layout_constraintStart_toStartOf="@+id/brand"
+                app:layout_constraintTop_toBottomOf="@+id/brand" />
 
             <TextView
-                android:id="@+id/labelAbsorptionTime"
+                android:id="@+id/labelBrand"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -150,11 +150,11 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/labelBloodAlcohol"
-                app:layout_constraintTop_toBottomOf="@+id/labelBloodAlcohol" />
+                app:layout_constraintStart_toStartOf="@+id/labelQuantity"
+                app:layout_constraintTop_toBottomOf="@+id/labelQuantity" />
 
             <EditText
-                android:id="@+id/absorptionTime"
+                android:id="@+id/brand"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -162,14 +162,14 @@
                 android:backgroundTint="@android:color/white"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="#FFFFFF"
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/bloodAlcohol"
-                app:layout_constraintStart_toStartOf="@+id/bloodAlcohol"
-                app:layout_constraintTop_toBottomOf="@+id/bloodAlcohol" />
+                app:layout_constraintEnd_toEndOf="@+id/quantity"
+                app:layout_constraintStart_toStartOf="@+id/quantity"
+                app:layout_constraintTop_toBottomOf="@+id/quantity" />
 
             <TextView
-                android:id="@+id/labelBloodAlcohol"
+                android:id="@+id/labelQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -181,13 +181,13 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/bloodAlcohol"
+                app:layout_constraintEnd_toStartOf="@+id/quantity"
                 app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/bloodAlcohol"
+                android:id="@+id/quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
@@ -195,8 +195,8 @@
                 android:background="@android:drawable/editbox_background"
                 android:backgroundTint="@android:color/white"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FFFFFF"
+                android:inputType="numberDecimal"
+                android:textColor="#0E0D0D"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

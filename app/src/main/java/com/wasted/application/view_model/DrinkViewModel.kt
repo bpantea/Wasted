@@ -48,7 +48,7 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
 
     fun updateDrink(drink: Drink) {
         viewModelScope.launch {
-            drinkService.updateDrink(drink)
+            drinkService.addDrink(drink)
         }
     }
 }

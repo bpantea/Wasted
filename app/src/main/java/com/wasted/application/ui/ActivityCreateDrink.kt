@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -15,6 +17,8 @@ import com.wasted.application.R
 import com.wasted.application.model.Drink
 import com.wasted.application.view_model.DrinkViewModel
 import java.lang.Exception
+import java.text.DecimalFormat
+import java.text.Format
 
 class ActivityCreateDrink : AppCompatActivity() {
 
@@ -38,8 +42,30 @@ class ActivityCreateDrink : AppCompatActivity() {
     }
 
     private fun updateUIFromDrink(drink: Drink) {
-        // todo update UI
-        Toast.makeText(this, drink.brand, Toast.LENGTH_LONG).show()
+
+
+        //val format: Format = DecimalFormat("##.##")
+        val quantity:EditText = findViewById(R.id.quantity)
+        val brand :EditText= findViewById(R.id.brand)
+        val model:EditText = findViewById(R.id.model)
+        val bloodAlcohol:EditText = findViewById(R.id.bloodAlcohol)
+        val kcal:EditText = findViewById(R.id.kcal)
+        quantity.setText(drink.quantity.toString())
+        brand.setText(drink.brand.toString())
+        model.setText(drink.model.toString())
+        //val formatted:String = format.format()
+        bloodAlcohol.setText(drink.alcoholQuantity.toString())
+        kcal.setText(drink.kcal.toString())
+
+        val getDrink:Drink? = getDrinkFromEditView()
+        if(getDrink != null) {
+            drinkViewModel.updateDrink(getDrink)
+            Toast.makeText(this,"SUCCESS",Toast.LENGTH_SHORT).show()
+        }
+        else
+        {
+            Toast.makeText(this,"NOT SUCCEED",Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun bottomNavigationInit() {
@@ -71,12 +97,42 @@ class ActivityCreateDrink : AppCompatActivity() {
     }
 
     fun addDrink(view: View?) {
-        // todo: put real values here
-        val drink = Drink(DrinkViewModel.scannerBarcode!!, 100.0, "brand", "model", 100.0, 100.0)
+        val drink:Drink? = getDrinkFromEditView()
+
         try {
-            drinkViewModel.addDrink(drink)
+            if(drink != null) {
+                drinkViewModel.addDrink(drink)
+                Toast.makeText(this,"SUCCESS",Toast.LENGTH_SHORT).show()
+            }
+            else
+            {
+                Toast.makeText(this,"NOT SUCCEED",Toast.LENGTH_SHORT).show()
+            }
+
         } catch (e: Exception) {
-            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+
+
         }
+    }
+    fun getDrinkFromEditView():Drink?{
+        val quantity:Double  = findViewById<EditText>(R.id.quantity).text.toString().toDouble()
+        val brand:String= findViewById<EditText>(R.id.brand).text.toString()
+        val model:String = findViewById<EditText>(R.id.model).text.toString()
+        val bloodAlcohol:Double = findViewById<EditText>(R.id.bloodAlcohol).text.toString().toDouble()
+        val kcal:Double = findViewById<EditText>(R.id.kcal).text.toString().toDouble()
+        if(quantity != null && brand.length >= 0 && model.length >= 0 && bloodAlcohol != null && kcal != null) {
+            var drink = Drink(
+                DrinkViewModel.scannerBarcode!!.toString(),
+                quantity,
+                brand,
+                model,
+                bloodAlcohol,
+                kcal
+            )
+            return drink
+        }
+        else
+            return null
+
     }
 }
