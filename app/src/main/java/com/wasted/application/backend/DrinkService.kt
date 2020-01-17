@@ -15,9 +15,6 @@ interface DrinkService {
     @POST(drinkApi)
     suspend fun addDrink(@Body drink: Drink): Drink
 
-    @PUT(drinkApi)
-    suspend fun updateDrink(@Body drink: Drink): Drink
-
     @DELETE("${drinkApi}{id}")
     suspend fun deleteDrink(@Path("id") id: String)
 }
