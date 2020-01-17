@@ -63,7 +63,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun fetchProfilePicture() {
         viewModelScope.launch {
             val obj = object : MyAsync() {
-
                 override fun onPostExecute(bmp: Bitmap) {
                     bmpObservable.value = bmp
                 }

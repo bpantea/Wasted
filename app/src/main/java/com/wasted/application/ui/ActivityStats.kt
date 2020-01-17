@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -71,33 +70,21 @@ class ActivityStats : AppCompatActivity() {
 
     private fun updateUI(stats: Stats?) {
 
-        var bloodAlcohol:TextView = findViewById(R.id.bloodAlcohol1)
-        var absorptionTime:TextView = findViewById(R.id.absorptionTime1)
-        var kcalStatistics:TextView = findViewById(R.id.kcalStatistics1)
+        val bloodAlcohol: TextView = findViewById(R.id.bloodAlcohol1)
+        val absorptionTime: TextView = findViewById(R.id.absorptionTime1)
+        val kcalStatistics: TextView = findViewById(R.id.kcalStatistics1)
 
         if (stats != null) {
-            val alcohol:Double = String.format("%.3f", stats.percentAlcohol).toDouble()
-            val time:Double = String.format("%.3f", stats.absortionTime).toDouble()
-            val kcal:Double = String.format("%.3f", stats.kcalsNumber).toDouble()
-            if(stats.percentAlcohol>0.01)
+            val alcohol: Double = String.format("%.3f", stats.percentAlcohol).toDouble()
+            val time: Double = String.format("%.3f", stats.absortionTime).toDouble()
+            val kcal: Double = String.format("%.3f", stats.kcalsNumber).toDouble()
+            if (stats.percentAlcohol > 0.01)
                 bloodAlcohol.text = alcohol.toString()
             else
-                bloodAlcohol.text="0.0"
+                bloodAlcohol.text = "0.0"
 
             absorptionTime.text = time.toString()
             kcalStatistics.text = kcal.toString()
-        }
-        else {
-            //nu exista stats
-            var defStats = Stats(0.0, 0.0, 0.0)
-
-            val alcohol:Double = String.format("%.3f", defStats.percentAlcohol).toDouble()
-            val time:Double = String.format("%.3f", defStats.absortionTime).toDouble()
-            val kcal:Double = String.format("%.3f", defStats.kcalsNumber).toDouble()
-
-            bloodAlcohol1.text=alcohol.toString()
-            absorptionTime.text = time.toString()
-            kcalStatistics.text=kcal.toString()
         }
     }
 
@@ -113,7 +100,13 @@ class ActivityStats : AppCompatActivity() {
         builder.setMessage("Do you really want to add this drink?")
 
         builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-            consumptionViewModel.createConsumption(ConsumptionDto(AuthService.idUser!!, drink.id!!, drink.quantity!!))
+            consumptionViewModel.createConsumption(
+                ConsumptionDto(
+                    AuthService.idUser!!,
+                    drink.id!!,
+                    drink.quantity!!
+                )
+            )
         }
 
         builder.setNegativeButton(android.R.string.no) { dialog, which ->
@@ -139,14 +132,14 @@ class ActivityStats : AppCompatActivity() {
                 R.id.ic_profile -> {
                     val intentTwo = Intent(this, ActivityProfile::class.java)
                     startActivity(intentTwo)
-                    overridePendingTransition(0,0)
+                    overridePendingTransition(0, 0)
                     //mSelectedItem=1
                     true
                 }
                 else -> {
                     val intentThree = Intent(this, ScanActivity::class.java)
                     startActivityForResult(intentThree, CREATE_CODE)
-                    overridePendingTransition(0,0)
+                    overridePendingTransition(0, 0)
                     true
                 }
 
