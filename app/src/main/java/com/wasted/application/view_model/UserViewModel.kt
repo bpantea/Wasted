@@ -11,6 +11,7 @@ import com.wasted.application.model.ExtraFieldsUser
 import com.wasted.application.model.User
 import com.wasted.application.utils.retrofit.RetrofitProvider
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import java.lang.IllegalStateException
 import java.net.SocketException
 
@@ -33,6 +34,8 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             try {
                 userService.addExtraFieldsToUser(idUser, user)
             } catch (e: SocketException) {
+                Toast.makeText(getApplication<Application>().applicationContext!!, "SocketException", Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
                 Toast.makeText(getApplication<Application>().applicationContext!!, "SocketException", Toast.LENGTH_LONG).show()
             }
         }
