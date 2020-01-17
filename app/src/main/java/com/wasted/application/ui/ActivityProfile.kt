@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -41,7 +40,7 @@ class ActivityProfile : AppCompatActivity() {
 
     private fun updateUI(user: User?) {
         if (user != null) {
-            var genSpinner:Spinner=findViewById(R.id.genderSpinner)
+            val genSpinner:Spinner=findViewById(R.id.genderSpinner)
                 if(user.gender!=null){
                     if(user.gender!!.equals(Gender.MALE))
                     genSpinner.setSelection(0)
@@ -53,21 +52,16 @@ class ActivityProfile : AppCompatActivity() {
                     genSpinner.setSelection(2)
                 }
 
-            var wghtUser:EditText =findViewById(R.id.weightText)
-            if(user.weight!=null)
-                wghtUser.setText(user.weight.toString())
-            else
-                wghtUser.setText("0")
+            val weightText:EditText =findViewById(R.id.weightText)
+            weightText.setText(if (user.weight != null) user.weight.toString() else "0")
 
+            val date: DatePicker = findViewById(R.id.datePickerInfo)
+            val calendar:Calendar = Calendar.getInstance()
 
-            var date:DatePicker=findViewById(R.id.datePickerInfo)
-            var calendar:Calendar= Calendar.getInstance()
-
-            calendar.timeInMillis=user.birthday!!.time
-            if(calendar!=null)
-                date.updateDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))
-
-            // todo add here info from user
+            if (user.birthday != null) {
+                calendar.timeInMillis = user.birthday!!.time
+            }
+            date.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
         }
     }
 
@@ -82,10 +76,8 @@ class ActivityProfile : AppCompatActivity() {
             when (item.itemId) {
                 R.id.ic_stats -> {
                     val intentOne = Intent(this, ActivityStats::class.java)
-                    println("GOING TO 1")
                     startActivity(intentOne)
                     overridePendingTransition(0,0)
-                    //mSelectedItem=0
                     true
                 }
                 R.id.ic_profile-> {
@@ -95,7 +87,6 @@ class ActivityProfile : AppCompatActivity() {
                     val intentThree = Intent(this, ActivityCreateDrink::class.java)
                     startActivity(intentThree)
                     overridePendingTransition(0,0)
-                    //mSelectedItem=2
                     true
                 }
             }
@@ -110,31 +101,22 @@ class ActivityProfile : AppCompatActivity() {
     }
 
     fun updateUser(view: View) {
-        // TODO update this fields from Views
+        val genSpinner: Spinner = findViewById(R.id.genderSpinner)
+        val weightText: EditText = findViewById(R.id.weightText)
+        val date: DatePicker = findViewById(R.id.datePickerInfo)
+        val calendar = Calendar.getInstance()
+        calendar.set(date.year, date.month, date.dayOfMonth)
 
+        val user = ExtraFieldsUser(null, null, null)
 
-        var user = ExtraFieldsUser(null, null, null)
+        user.gender = when(genderSpinner) {
+            genSpinner.getItemAtPosition(0) -> Gender.MALE
+            genSpinner.getItemAtPosition(1) -> Gender.FEMALE
+            else -> Gender.OTHER
+        }
+        user.weight = weightText.text.toString().toDouble()
+        user.birthday = calendar.timeInMillis
 
-        var genSpinner:Spinner=findViewById(R.id.genderSpinner)
-        if(genSpinner.selectedItem.equals(genSpinner.getItemAtPosition(0)))
-            user.gender=Gender.MALE
-
-        if(genSpinner.selectedItem.equals(genSpinner.getItemAtPosition(1)))
-            user.gender=Gender.FEMALE
-
-        if(genSpinner.selectedItem.equals(genSpinner.getItemAtPosition(2)))
-            user.gender=Gender.OTHER
-
-        var wghtUser:EditText =findViewById(R.id.weightText)
-        user.weight=wghtUser.text.toString().toDouble()
-
-        var date:DatePicker=findViewById(R.id.datePickerInfo)
-        var data: Date?
-        var calendar:Calendar= Calendar.getInstance()
-        calendar.set(date.year,date.month,date.dayOfMonth)
-
-        data=calendar.time
-        user.birthday=data.time
         userViewModel.updateUser(user)
     }
 }
