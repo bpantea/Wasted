@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -13,37 +14,40 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wasted.application.R
 import com.wasted.application.model.Drink
 import com.wasted.application.view_model.DrinkViewModel
+import java.lang.Exception
 
 class ActivityCreateDrink : AppCompatActivity() {
 
-    lateinit var drinkViewModel: DrinkViewModel
-
+    private lateinit var drinkViewModel: DrinkViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_drink_layout)
+
         Log.d("Activity CreateDrink", "onCreate: started...")
 
+        bottomNavigationInit()
         drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
 
-        drinkViewModel.addDrink(Drink("123",
-            123.0,
-            "Another brand",
-            "Model 1100",
-            1334.0,
-            233.0
-        ))
-
+        drinkViewModel.startGetDrink(DrinkViewModel.scannerBarcode!!)
         drinkViewModel.currentDrink.observe(this, Observer {
-            Toast.makeText(this, it?.brand, Toast.LENGTH_LONG).show()
+            if (it != null) {
+                updateUIFromDrink(it)
+            }
         })
-        drinkViewModel.startGetDrink("123")
+    }
 
-        val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavView)
+    private fun updateUIFromDrink(drink: Drink) {
+        // todo update UI
+        Toast.makeText(this, drink.brand, Toast.LENGTH_LONG).show()
+    }
 
-        val menu : Menu = bottomNavigationView.menu
-        val menuItem : MenuItem = menu.getItem(2)
-        menuItem.setChecked(true)
+    private fun bottomNavigationInit() {
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)
+
+        val menu: Menu = bottomNavigationView.menu
+        val menuItem: MenuItem = menu.getItem(2)
+        menuItem.isChecked = true
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -52,7 +56,7 @@ class ActivityCreateDrink : AppCompatActivity() {
                     startActivity(intentOne)
                     true
                 }
-                R.id.ic_profile-> {
+                R.id.ic_profile -> {
                     val intentTwo = Intent(this, ActivityProfile::class.java)
                     startActivity(intentTwo)
                     true
@@ -61,8 +65,16 @@ class ActivityCreateDrink : AppCompatActivity() {
                     true
                 }
             }
-            //            return true
         }
     }
 
+    fun addDrink(view: View?) {
+        // todo: put real values here
+        val drink = Drink(DrinkViewModel.scannerBarcode!!, 100.0, "brand", "model", 100.0, 100.0)
+        try {
+            drinkViewModel.addDrink(drink)
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+        }
+    }
 }
