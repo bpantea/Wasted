@@ -41,15 +41,17 @@ class ActivityProfile : AppCompatActivity() {
 
     private fun updateUI(user: User?) {
         if (user != null) {
-           var genSpinner:Spinner=findViewById(R.id.genderSpinner)
-            if(user.gender!=null){
-                if(user.gender!!.equals(Gender.MALE))
-                genSpinner.setSelection(0)
-                if(user.gender!!.equals(Gender.FEMALE))
+            var genSpinner:Spinner=findViewById(R.id.genderSpinner)
+                if(user.gender!=null){
+                    if(user.gender!!.equals(Gender.MALE))
+                    genSpinner.setSelection(0)
+
+                    if(user.gender!!.equals(Gender.FEMALE))
                     genSpinner.setSelection(1)
-                if(user.gender!!.equals(Gender.OTHER))
+
+                    if(user.gender!!.equals(Gender.OTHER))
                     genSpinner.setSelection(2)
-            }
+                }
 
             var wghtUser:EditText =findViewById(R.id.weightText)
             if(user.weight!=null)
@@ -57,10 +59,13 @@ class ActivityProfile : AppCompatActivity() {
             else
                 wghtUser.setText("0")
 
-//            var date:DatePicker=findViewById(R.id.datePickerInfo)
-//            var data: Date? = user.birthday
-//            if(data!=null)
-//                date.updateDate(date.year,date.month,date.dayOfMonth)
+
+            var date:DatePicker=findViewById(R.id.datePickerInfo)
+            var calendar:Calendar= Calendar.getInstance()
+
+            calendar.timeInMillis=user.birthday!!.time
+            if(calendar!=null)
+                date.updateDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH))
 
             // todo add here info from user
         }
@@ -109,23 +114,27 @@ class ActivityProfile : AppCompatActivity() {
 
 
         var user = ExtraFieldsUser(null, null, null)
+
         var genSpinner:Spinner=findViewById(R.id.genderSpinner)
         if(genSpinner.selectedItem.equals(genSpinner.getItemAtPosition(0)))
             user.gender=Gender.MALE
+
         if(genSpinner.selectedItem.equals(genSpinner.getItemAtPosition(1)))
             user.gender=Gender.FEMALE
+
         if(genSpinner.selectedItem.equals(genSpinner.getItemAtPosition(2)))
             user.gender=Gender.OTHER
+
         var wghtUser:EditText =findViewById(R.id.weightText)
         user.weight=wghtUser.text.toString().toDouble()
+
         var date:DatePicker=findViewById(R.id.datePickerInfo)
         var data: Date?
-      var calendar:Calendar= Calendar.getInstance()
+        var calendar:Calendar= Calendar.getInstance()
         calendar.set(date.year,date.month,date.dayOfMonth)
-       data=calendar.time
-        user.birthday=data
-      Toast.makeText(this,data.toString(),Toast.LENGTH_LONG).show()
-        //print(user.toString())
+
+        data=calendar.time
+        user.birthday=data.time
         userViewModel.updateUser(user)
     }
 }
