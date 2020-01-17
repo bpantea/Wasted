@@ -15,7 +15,7 @@ import java.lang.Exception
 
 class ConsumptionViewModel(application: Application) : AndroidViewModel(application) {
 
-    val stats = MutableLiveData<Stats>(null)
+    val stats = MutableLiveData<Stats>()
 
     private val consumptionService = RetrofitProvider.createService(application, ConsumptionService::class.java)
 

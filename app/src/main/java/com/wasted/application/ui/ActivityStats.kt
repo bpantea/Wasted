@@ -9,6 +9,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -68,8 +70,34 @@ class ActivityStats : AppCompatActivity() {
     }
 
     private fun updateUI(stats: Stats?) {
+
+        var bloodAlcohol:TextView = findViewById(R.id.bloodAlcohol1)
+        var absorptionTime:TextView = findViewById(R.id.absorptionTime1)
+        var kcalStatistics:TextView = findViewById(R.id.kcalStatistics1)
+
         if (stats != null) {
-            // todo update UI
+            val alcohol:Double = String.format("%.3f", stats.percentAlcohol).toDouble()
+            val time:Double = String.format("%.3f", stats.absortionTime).toDouble()
+            val kcal:Double = String.format("%.3f", stats.kcalsNumber).toDouble()
+            if(stats.percentAlcohol>0.01)
+                bloodAlcohol.text = alcohol.toString()
+            else
+                bloodAlcohol.text="0.0"
+
+            absorptionTime.text = time.toString()
+            kcalStatistics.text = kcal.toString()
+        }
+        else {
+            //nu exista stats
+            var defStats = Stats(0.0, 0.0, 0.0)
+
+            val alcohol:Double = String.format("%.3f", defStats.percentAlcohol).toDouble()
+            val time:Double = String.format("%.3f", defStats.absortionTime).toDouble()
+            val kcal:Double = String.format("%.3f", defStats.kcalsNumber).toDouble()
+
+            bloodAlcohol1.text=alcohol.toString()
+            absorptionTime.text = time.toString()
+            kcalStatistics.text=kcal.toString()
         }
     }
 
