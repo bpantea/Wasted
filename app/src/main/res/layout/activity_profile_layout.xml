@@ -232,7 +232,6 @@
                     android:id="@+id/emailText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="?attr/editTextBackground"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="textEmailAddress"
@@ -241,23 +240,24 @@
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/displayNameText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="74dp"
-                    android:background="?attr/editTextBackground"
                     android:backgroundTint="#FFFFFF"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Nickname"
+                    android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#FFFFFF"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/emailText"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

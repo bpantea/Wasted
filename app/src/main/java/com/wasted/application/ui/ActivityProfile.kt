@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,8 +17,8 @@ import com.wasted.application.model.Gender
 import com.wasted.application.model.User
 import com.wasted.application.utils.WastedApplication
 import com.wasted.application.view_model.UserViewModel
-import kotlinx.android.synthetic.main.activity_profile_layout.*
 import java.util.*
+
 
 class ActivityProfile : AppCompatActivity() {
 
@@ -67,6 +65,25 @@ class ActivityProfile : AppCompatActivity() {
                 calendar.get(Calendar.DAY_OF_MONTH)
             )
         }
+        if (user != null) {
+            if (!user.profilePicture.equals("null")) {
+
+
+                val profilePicture: ImageView = findViewById(R.id.userImage)
+                userViewModel.bmpObservable.observe(this, Observer {
+                    if (it != null) {
+                        profilePicture.setImageBitmap(it)
+                    }
+                })
+                UserViewModel.src = user.profilePicture!!
+                userViewModel.fetchProfilePicture()
+            }
+        }
+        var displayNameLabel :TextView=findViewById(R.id.displayNameText)
+        displayNameLabel.setText(user?.displayName.toString())
+
+        var emailLabel :TextView=findViewById(R.id.emailText)
+        emailLabel.setText(user?.email.toString())
     }
 
     private fun bottomNavigationInitialization() {
@@ -113,11 +130,7 @@ class ActivityProfile : AppCompatActivity() {
 
         val user = ExtraFieldsUser(null, null, null)
 
-        user.gender = when (genderSpinner) {
-            genSpinner.getItemAtPosition(0) -> Gender.MALE
-            genSpinner.getItemAtPosition(1) -> Gender.FEMALE
-            else -> Gender.OTHER
-        }
+        user.gender = Gender.valueOf(genSpinner.selectedItem.toString().toUpperCase())
         user.weight = weightText.text.toString().toDouble()
         user.birthday = calendar.timeInMillis
 
