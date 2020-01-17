@@ -3,9 +3,9 @@
     <string name="logged_in">Log in</string>
     <string name="login">Log in</string>
     <string name="logout">Log out</string>
-    <string name="server_client_id">376972536110-e3ckka9ep06vhv33jq3o7vrnup177f4a.apps.googleusercontent.com</string>
+<!--    <string name="server_client_id">376972536110-e3ckka9ep06vhv33jq3o7vrnup177f4a.apps.googleusercontent.com</string>-->
     <string name="api_server_staging">https://wasted-server.herokuapp.com/</string>
-    <string name="api_server_local">http://192.168.1.50:8081/</string>
+    <string name="api_server_local">http://192.168.43.59:8081/</string>
     <string name="genderString">Gender</string>
     <string name="facebook_app_id">2386373428340095</string>
     <string name="fb_login_protocol_scheme">fb2386373428340095</string>
@@ -17,13 +17,5 @@
     <item>Female</item>
     <item>Other</item>
 </string-array>
-
-
-
-    <string name="secondActivityHello">Welcome to SecondActivity</string>
-    <string name="activityStatsWelcome">Welcome to ACTIVITY STATS</string>
-    <string name="activityProfileWelcome">Welcome to ACTIVITY PROFILE</string>
-    <string name="activityCreateDrinkWelcome">Welcome to ACTIVITY CREATE DRINK</string>
-
 
 </resources>
