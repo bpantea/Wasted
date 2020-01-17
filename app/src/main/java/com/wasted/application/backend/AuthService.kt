@@ -17,7 +17,7 @@ interface AuthService {
 
     companion object {
 
-        val fullUser: MutableLiveData<User?> = MutableLiveData()
+        var idUser: String? = null
 
         val authenticationGoogleUser: MutableLiveData<GoogleSignInAccount?> = MutableLiveData()
 
@@ -26,7 +26,7 @@ interface AuthService {
         }
 
         fun updateFullUser(user: User?) {
-            fullUser.value = user
+            idUser = user?.id
         }
     }
 
