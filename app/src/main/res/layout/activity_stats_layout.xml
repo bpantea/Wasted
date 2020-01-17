@@ -133,19 +133,28 @@
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/orderPlus"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="52dp"
-            android:gravity="end|bottom"
-            android:tint="@android:color/white"
-            app:backgroundTint="#045248"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/add64" />
+            app:layout_constraintBottom_toBottomOf="@id/linearLayout"
+            app:layout_constraintRight_toRightOf="@id/linearLayout">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/orderPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="40dp"
+
+                android:tint="@android:color/white"
+                android:layout_marginBottom="70dp"
+                app:backgroundTint="#045248"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/add64" />
+
+        </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout

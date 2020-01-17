@@ -7,7 +7,7 @@ private const val drinkApi = "api/drink"
 
 interface DrinkService {
     @GET("$drinkApi/getOne/{id}")
-    suspend fun getDrink(@Path("id") id: String): Drink
+    suspend fun getDrink(@Path("id") id: String): Drink?
 
     @GET("$drinkApi/all")
     suspend fun getAllDrinks(): List<Drink>
