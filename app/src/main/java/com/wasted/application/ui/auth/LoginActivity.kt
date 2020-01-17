@@ -52,8 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handleSignInResult(task: Task<GoogleSignInAccount>) {
         val account: GoogleSignInAccount = task.getResult(ApiException::class.java)!!
-        // todo send to backend
-        AuthService.updateCurrentUser(account)
+        AuthService.updateAuthenticationUser(account)
         updateUI(account)
     }
 }

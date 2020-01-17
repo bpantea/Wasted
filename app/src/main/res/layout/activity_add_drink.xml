@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="text"
         android:text="BarCode"
@@ -42,4 +42,5 @@
         android:onClick="startScanButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

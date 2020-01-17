@@ -56,7 +56,7 @@ class ActivityProfile : AppCompatActivity() {
     fun logOut(view: View) {
         (application as WastedApplication).mGoogleSignInClient.signOut()
             .addOnCompleteListener(this) {
-                AuthService.updateCurrentUser(null)
+                AuthService.updateAuthenticationUser(null)
             }
     }
 }
