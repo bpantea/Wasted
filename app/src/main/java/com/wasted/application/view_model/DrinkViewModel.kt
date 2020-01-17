@@ -11,6 +11,10 @@ import kotlinx.coroutines.launch
 
 class DrinkViewModel(application: Application) : AndroidViewModel(application) {
 
+    companion object {
+        var scannerBarcode: String? = null
+    }
+
     var currentDrink: MutableLiveData<Drink?> = MutableLiveData(null)
     private val drinkService: DrinkService = RetrofitProvider.createService(application, DrinkService::class.java)
 
