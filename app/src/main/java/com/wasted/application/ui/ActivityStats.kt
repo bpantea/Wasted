@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -65,6 +66,9 @@ class ActivityStats : AppCompatActivity() {
         consumptionViewModel.stats.observe(this, Observer {
             updateUI(it)
         })
+
+
+
 
     }
 
@@ -170,5 +174,27 @@ class ActivityStats : AppCompatActivity() {
             var intent = Intent(this, ActivityCreateDrink::class.java)
             startActivity(intent)
         }
+    }
+
+    fun shareStats(view: View) {
+
+        val stats = consumptionViewModel.stats.value
+
+        if (stats != null) {
+            var content="Absorbtion time: "+stats.absortionTime.toString()+"\n"+
+                    "kcals: "+stats.kcalsNumber.toString()+"\n"+
+                    "alcohol percentage: "+stats.percentAlcohol.toString()
+
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+
+                putExtra(Intent.EXTRA_TEXT, content)
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
+        }
+
     }
 }
