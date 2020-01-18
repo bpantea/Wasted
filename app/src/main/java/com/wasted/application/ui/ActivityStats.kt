@@ -118,7 +118,6 @@ class ActivityStats : AppCompatActivity(), Observer<Drink?> {
                     drink.quantity!!
                 )
             )
-            consumptionViewModel.getStats()
         }
         builder.setNegativeButton(android.R.string.no) { dialog, which ->
 

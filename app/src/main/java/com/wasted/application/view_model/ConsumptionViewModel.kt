@@ -22,6 +22,7 @@ class ConsumptionViewModel(application: Application) : AndroidViewModel(applicat
     fun createConsumption(consumptionDto: ConsumptionDto) {
         viewModelScope.launch {
             consumptionService.createConsumption(consumptionDto)
+            getStats()
         }
     }
 
