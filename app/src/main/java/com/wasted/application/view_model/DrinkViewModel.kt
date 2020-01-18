@@ -18,7 +18,7 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
         var scannerBarcode: String? = null
     }
 
-    var currentDrink: MutableLiveData<Drink?> = MutableLiveData(null)
+    var currentDrink: MutableLiveData<Drink?> = MutableLiveData()
     private val drinkService: DrinkService = RetrofitProvider.createService(application, DrinkService::class.java)
 
     /**

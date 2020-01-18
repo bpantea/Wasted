@@ -28,7 +28,7 @@ import com.wasted.application.view_model.ConsumptionViewModel
 import com.wasted.application.view_model.DrinkViewModel
 import kotlinx.android.synthetic.main.activity_stats_layout.*
 
-class ActivityStats : AppCompatActivity() {
+class ActivityStats : AppCompatActivity(), Observer<Drink?> {
     val ADD_CODE = 1
     val CREATE_CODE = 2
     val REQUEST_CODE = 1
@@ -66,10 +66,6 @@ class ActivityStats : AppCompatActivity() {
         consumptionViewModel.stats.observe(this, Observer {
             updateUI(it)
         })
-
-
-
-
     }
 
     private fun updateUI(stats: Stats?) {
@@ -112,6 +108,9 @@ class ActivityStats : AppCompatActivity() {
                 )
             )
             consumptionViewModel.getStats()
+        }
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+
         }
         builder.show()
     }
@@ -156,13 +155,7 @@ class ActivityStats : AppCompatActivity() {
 
             drinkViewModel.startGetDrink(code)
 
-            drinkViewModel.currentDrink.observe(this, Observer {
-                if (it != null) {
-                    createAndShowDialogForConfirmDrink(it)
-                } else {
-                    Toast.makeText(this, "Drink not found!", Toast.LENGTH_LONG).show()
-                }
-            })
+            drinkViewModel.currentDrink.observe(this, this)
         }
         if (requestCode == CREATE_CODE && resultCode == Activity.RESULT_OK && data != null) {
             var code = data.getStringExtra("1")
@@ -192,6 +185,16 @@ class ActivityStats : AppCompatActivity() {
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
         }
+
+    }
+
+    override fun onChanged(drink: Drink?) {
+        if (drink != null) {
+            createAndShowDialogForConfirmDrink(drink)
+        } else {
+            Toast.makeText(this, "Drink not found!", Toast.LENGTH_LONG).show()
+        }
+        drinkViewModel.currentDrink.removeObserver(this)
 
     }
 }
