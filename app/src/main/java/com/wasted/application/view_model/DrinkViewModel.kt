@@ -49,7 +49,7 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
             {
                 Toast.makeText(
                     getApplication<Application>().applicationContext!!,
-                    "NOT SUCCEED",
+                    "NOT SUCCEED. Maybe you inserted wrong values?",
                     Toast.LENGTH_LONG
                 ).show()
                 

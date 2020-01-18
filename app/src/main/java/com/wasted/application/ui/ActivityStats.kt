@@ -27,6 +27,9 @@ import com.wasted.application.utils.scanner.ScanActivity
 import com.wasted.application.view_model.ConsumptionViewModel
 import com.wasted.application.view_model.DrinkViewModel
 import kotlinx.android.synthetic.main.activity_stats_layout.*
+import java.text.DecimalFormat
+import java.text.NumberFormat
+
 
 class ActivityStats : AppCompatActivity(), Observer<Drink?> {
     val ADD_CODE = 1
@@ -75,17 +78,25 @@ class ActivityStats : AppCompatActivity(), Observer<Drink?> {
         val kcalStatistics: TextView = findViewById(R.id.kcalStatistics1)
 
         if (stats != null) {
-            val alcohol: Double = String.format("%.3f", stats.percentAlcohol).toDouble()
-            val time: Double = String.format("%.3f", stats.absortionTime).toDouble()
-            val kcal: Double = String.format("%.3f", stats.kcalsNumber).toDouble()
-            if (stats.percentAlcohol > 0.01)
-                bloodAlcohol.text = alcohol.toString()
-            else
-                bloodAlcohol.text = "0.0"
+            val formatterBlood: NumberFormat = DecimalFormat("#0.000")
 
-            absorptionTime.text = time.toString()
-            kcalStatistics.text = kcal.toString()
+
+            bloodAlcohol.text = formatterBlood.format(stats.percentAlcohol)
+            absorptionTime.text = getFormattedTime(stats.absortionTime)
+            kcalStatistics.text = stats.kcalsNumber.toInt().toString()
         }
+    }
+
+    private fun getFormattedTime(time: Double): String {
+        var formatterTime: NumberFormat? = null
+        if (time < 10) {
+            formatterTime = DecimalFormat("#0.0")
+        } else if (time < 100) {
+            formatterTime = DecimalFormat("#00.0")
+        } else {
+            formatterTime = DecimalFormat("#000.0")
+        }
+        return formatterTime.format(time)
     }
 
     override fun onResume() {
@@ -160,7 +171,6 @@ class ActivityStats : AppCompatActivity(), Observer<Drink?> {
         if (requestCode == CREATE_CODE && resultCode == Activity.RESULT_OK && data != null) {
             var code = data.getStringExtra("1")
             DrinkViewModel.scannerBarcode = code
-            Toast.makeText(this, code, Toast.LENGTH_SHORT).show()
             var intent = Intent(this, ActivityCreateDrink::class.java)
             startActivity(intent)
         }
@@ -171,9 +181,9 @@ class ActivityStats : AppCompatActivity(), Observer<Drink?> {
         val stats = consumptionViewModel.stats.value
 
         if (stats != null) {
-            var content="Absorbtion time: "+stats.absortionTime.toString()+"\n"+
-                    "kcals: "+stats.kcalsNumber.toString()+"\n"+
-                    "alcohol percentage: "+stats.percentAlcohol.toString()
+            var content = "Absorbtion time: " + stats.absortionTime.toString() + "\n" +
+                    "kcals: " + stats.kcalsNumber.toString() + "\n" +
+                    "alcohol percentage: " + stats.percentAlcohol.toString()
 
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND

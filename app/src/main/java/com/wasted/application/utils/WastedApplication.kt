@@ -44,7 +44,7 @@ class WastedApplication : Application() {
                 authService.login(GoogleUserDto(it.id!!, it.displayName!!, it.email, it.photoUrl.toString()))
                     .enqueue(object : Callback<User> {
                         override fun onFailure(call: Call<User>?, t: Throwable?) {
-                            Toast.makeText(applicationContext, "Shit", Toast.LENGTH_LONG).show()
+
                         }
 
                         override fun onResponse(call: Call<User>?, response: Response<User>?) {

@@ -83,10 +83,10 @@ class ActivityProfile : AppCompatActivity() {
                 userViewModel.fetchProfilePicture()
             }
         }
-        var displayNameLabel :TextView=findViewById(R.id.displayNameText)
+        var displayNameLabel: TextView = findViewById(R.id.displayNameText)
         displayNameLabel.setText(user?.displayName.toString())
 
-        var emailLabel :TextView=findViewById(R.id.emailText)
+        var emailLabel: TextView = findViewById(R.id.emailText)
         emailLabel.setText(user?.email.toString())
     }
 
@@ -111,7 +111,7 @@ class ActivityProfile : AppCompatActivity() {
                 else -> {
                     val intentThree = Intent(this, ScanActivity::class.java)
                     startActivityForResult(intentThree, CREATE_CODE)
-                    overridePendingTransition(0,0)
+                    overridePendingTransition(0, 0)
                     true
                 }
             }
@@ -146,7 +146,6 @@ class ActivityProfile : AppCompatActivity() {
         if (requestCode == CREATE_CODE && resultCode == Activity.RESULT_OK && data != null) {
             val code = data.getStringExtra("1")
             DrinkViewModel.scannerBarcode = code
-            Toast.makeText(this, code, Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ActivityCreateDrink::class.java)
             startActivity(intent)
         }

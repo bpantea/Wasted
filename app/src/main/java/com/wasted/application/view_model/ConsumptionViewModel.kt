@@ -28,7 +28,9 @@ class ConsumptionViewModel(application: Application) : AndroidViewModel(applicat
     fun getStats() {
         viewModelScope.launch {
             try {
-                stats.value = consumptionService.getStats(AuthService.idUser!!)
+                if (AuthService.idUser != null) {
+                    stats.value = consumptionService.getStats(AuthService.idUser!!)
+                }
             } catch (ex: Exception) {
                 stats
             }

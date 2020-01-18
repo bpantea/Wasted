@@ -37,7 +37,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    val bmpObservable = MutableLiveData<Bitmap>()
+    val bmpObservable = MutableLiveData<Bitmap?>()
 
     fun updateUser(user: ExtraFieldsUser) {
         viewModelScope.launch {
@@ -53,7 +53,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 Toast.makeText(
                     getApplication<Application>().applicationContext!!,
-                    "SocketException",
+                    "Error updating user",
                     Toast.LENGTH_LONG
                 ).show()
             }
