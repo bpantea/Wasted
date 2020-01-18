@@ -24,6 +24,8 @@ class ActivityCreateDrink : AppCompatActivity() {
 
     private lateinit var drinkViewModel: DrinkViewModel
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_drink_layout)
@@ -102,7 +104,6 @@ class ActivityCreateDrink : AppCompatActivity() {
         try {
             if(drink != null) {
                 drinkViewModel.addDrink(drink)
-                Toast.makeText(this,"SUCCESS",Toast.LENGTH_SHORT).show()
             }
             else
             {

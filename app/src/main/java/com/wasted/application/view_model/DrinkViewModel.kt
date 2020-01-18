@@ -1,11 +1,13 @@
 package com.wasted.application.view_model
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.wasted.application.backend.DrinkService
 import com.wasted.application.model.Drink
+import com.wasted.application.ui.ActivityCreateDrink
 import com.wasted.application.utils.retrofit.RetrofitProvider
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -36,7 +38,22 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addDrink(drink: Drink) {
         viewModelScope.launch {
-            drinkService.addDrink(drink)
+            try{
+                val drink: Drink = drinkService.addDrink(drink)
+                Toast.makeText(
+                    getApplication<Application>().applicationContext!!,
+                    "SUCCESS",
+                    Toast.LENGTH_LONG
+                ).show()
+            }catch (e:Exception)
+            {
+                Toast.makeText(
+                    getApplication<Application>().applicationContext!!,
+                    "NOT SUCCEED",
+                    Toast.LENGTH_LONG
+                ).show()
+                
+            }
         }
     }
 
