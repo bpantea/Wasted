@@ -7,7 +7,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -49,14 +48,6 @@ class ActivityCreateDrink : AppCompatActivity() {
         model.setText(drink.model)
         bloodAlcohol.setText(drink.alcoholQuantity.toString())
         kcal.setText(drink.kcal.toString())
-
-        val getDrink: Drink? = getDrinkFromEditView()
-        if (getDrink != null) {
-            drinkViewModel.updateDrink(getDrink)
-            Toast.makeText(this, "SUCCESS", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "NOT SUCCEED", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun bottomNavigationInit() {
@@ -88,40 +79,23 @@ class ActivityCreateDrink : AppCompatActivity() {
     }
 
     fun addDrink(view: View?) {
-        val drink: Drink? = getDrinkFromEditView()
-
-        try {
-            if (drink != null) {
-                drinkViewModel.addDrink(drink)
-            } else {
-                Toast.makeText(this, "NOT SUCCEED", Toast.LENGTH_SHORT).show()
-            }
-
-        } catch (e: Exception) {
-
-
-        }
+        drinkViewModel.addDrink(getDrinkFromEditView())
     }
 
-    fun getDrinkFromEditView(): Drink? {
+    private fun getDrinkFromEditView(): Drink {
         val quantity: Double = findViewById<EditText>(R.id.quantity).text.toString().toDouble()
         val brand: String = findViewById<EditText>(R.id.brand).text.toString()
         val model: String = findViewById<EditText>(R.id.model).text.toString()
         val bloodAlcohol: Double =
             findViewById<EditText>(R.id.bloodAlcohol).text.toString().toDouble()
         val kcal: Double = findViewById<EditText>(R.id.kcal).text.toString().toDouble()
-        if (quantity != null && brand.length >= 0 && model.length >= 0 && bloodAlcohol != null && kcal != null) {
-            var drink = Drink(
-                DrinkViewModel.scannerBarcode!!.toString(),
-                quantity,
-                brand,
-                model,
-                bloodAlcohol,
-                kcal
-            )
-            return drink
-        } else
-            return null
-
+        return Drink(
+            DrinkViewModel.scannerBarcode!!.toString(),
+            quantity,
+            brand,
+            model,
+            bloodAlcohol,
+            kcal
+        )
     }
 }

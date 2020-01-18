@@ -7,10 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.wasted.application.backend.DrinkService
 import com.wasted.application.model.Drink
-import com.wasted.application.ui.ActivityCreateDrink
 import com.wasted.application.utils.retrofit.RetrofitProvider
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class DrinkViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -19,7 +17,8 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     var currentDrink: MutableLiveData<Drink?> = MutableLiveData()
-    private val drinkService: DrinkService = RetrofitProvider.createService(application, DrinkService::class.java)
+    private val drinkService: DrinkService =
+        RetrofitProvider.createService(application, DrinkService::class.java)
 
     /**
      * The response will be in currentDrink
@@ -38,21 +37,20 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addDrink(drink: Drink) {
         viewModelScope.launch {
-            try{
-                val drink: Drink = drinkService.addDrink(drink)
+            try {
+                drinkService.addDrink(drink)
                 Toast.makeText(
                     getApplication<Application>().applicationContext!!,
                     "SUCCESS",
                     Toast.LENGTH_LONG
                 ).show()
-            }catch (e:Exception)
-            {
+            } catch (e: Exception) {
                 Toast.makeText(
                     getApplication<Application>().applicationContext!!,
                     "NOT SUCCEED. Maybe you inserted wrong values?",
                     Toast.LENGTH_LONG
                 ).show()
-                
+
             }
         }
     }
